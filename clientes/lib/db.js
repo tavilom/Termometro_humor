@@ -1,51 +1,34 @@
-import { NextResponse } from 'next/server';
-import { db } from '@/lib/db';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
 
-export async function POST(req) {
-  const { humor } = await req.json();
+export const dbPromise = open({
+  filename: './humor.db',
+  driver: sqlite3.Database,
+});
 
-  if (!humor) {
-    return NextResponse.json({ error: 'Humor não enviado.' }, { status: 400 });
-  }
+export const db = {
+  run: async (query, params) => {
+    const db = await dbPromise;
+    return db.run(query, params);
+  },
+  all: async (query, params) => {
+    const db = await dbPromise;
+    return db.all(query, params);
+  },
+  get: async (query, params) => {
+    const db = await dbPromise;
+    return db.get(query, params);
+  },
+};
 
-  try {
-    // Busca se já há envio no mesmo dia (formato YYYY-MM-DD)
-    const hoje = new Date().toISOString().slice(0, 10);
-
-    const resultado = await db.get(
-      `SELECT * FROM humores 
-       WHERE DATE(criado_em) = ?`,
-      [hoje]
-    );
-
-    if (resultado) {
-      return NextResponse.json(
-        { error: 'Você já enviou seu humor hoje.' },
-        { status: 400 }
-      );
-    }
-
-    // Cria um novo registro de humor
-    await db.run(
-      'INSERT INTO humores (humor, criado_em) VALUES (?, datetime("now"))',
-      [humor]
-    );
-
-    return NextResponse.json({ message: 'Humor salvo com sucesso.' });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      { error: 'Erro ao salvar humor.' },
-      { status: 500 }
-    );
-  }
-}
-
-export async function GET() {
-  try {
-    const humores = await db.all('SELECT * FROM humores ORDER BY criado_em DESC');
-    return NextResponse.json(humores, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ error: 'Erro ao buscar humores.' }, { status: 500 });
-  }
-}
+// Criação da tabela (roda uma vez no setup)
+(async () => {
+  const db = await dbPromise;
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS humores (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      humor TEXT NOT NULL,
+      criado_em TEXT NOT NULL
+    )
+  `);
+})();
