@@ -1,0 +1,20 @@
+.selected {
+  background-color: #10b981; /* verde */
+}
+
+.sendButton {
+  margin-top: 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.sendButton:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}

@@ -1,0 +1,14 @@
+projeto_humor
+├──clientes
+├────── app/                           
+│       ├── api/                        
+│       │   └── humor/
+│       │       └── route.js 
+│       ├── page.jsx
+│       ├── styles.module.css
+│       └── layout.jsx 
+├────── prisma/ 
+│       ├── prisma.js
+├──banco
+├────── migrations/ 
+├────── .env/ 
