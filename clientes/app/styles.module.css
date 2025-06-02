@@ -1,18 +1,30 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px); /* subtrai a altura da navbar fixa */
   padding: 2rem;
+  text-align: center;
 }
+
 
 .title {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  justify-content: center;
+  display: flex;
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
+
 
 .button {
   background-color: #3b82f6;
@@ -25,6 +37,7 @@
   gap: 0.5rem;
   transition: background-color 0.2s;
   cursor: pointer;
+  
 }
 
 .button:hover {
@@ -56,3 +69,62 @@
   background-color: #94a3b8;
   cursor: not-allowed;
 }
+
+.emoji {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+/* Animações ativadas apenas no hover do botão */
+.button:hover .feliz {
+  animation: bounce 0.6s infinite ;
+}
+
+.button:hover .triste {
+  animation: fadeInDown 0.6s infinite ;
+}
+
+.button:hover .bravo {
+  animation: shake 0.4s infinite ;
+}
+
+.button:hover .neutro {
+  animation: fadeInNeutral 0.6s infinite ;
+}
+
+/* Keyframes continuam os mesmos */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0.6;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInNeutral {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+

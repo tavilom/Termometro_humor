@@ -39,15 +39,18 @@ export default function HumorPage() {
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>Como você está se sentindo hoje?</h1>
-      
+
       <div className={styles.buttons}>
         {opcoes.map(({ label, emoji }) => (
           <button
             key={label}
-            onClick={() => setHumorSelecionado(label)}
-            className={`${styles.button} ${humorSelecionado === label ? styles.selected : ''}`}
+            onClick={() => enviarHumor(label)}
+            className={styles.button}
           >
-            <span style={{ fontSize: '1.5rem' }}>{emoji}</span> {label}
+            <span className={`${styles.emoji} ${styles[label.toLowerCase()]}`}>
+              {emoji}
+            </span>
+            {label}
           </button>
         ))}
       </div>

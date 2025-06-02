@@ -10,7 +10,9 @@ export default function RootLayout({ children }) {
     <html lang="pt">
       <body>
         <Navbar />
-        {children}
+        <div style={{ paddingTop: '70px' }}>
+          {children}
+        </div>
       </body>
     </html>
   );

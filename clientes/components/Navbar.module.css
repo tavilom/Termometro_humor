@@ -1,32 +1,76 @@
 .navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f2937;
+  background-color: #00a128;
   padding: 1rem 2rem;
   color: white;
+  font-family: sans-serif;
+  height: 55px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  cursor: default;
+}
+
+.logoImage {
+  height: 45px;
+  width: 70px;
+  margin-right: 10px;
+  /* Espaço entre o ícone e o formulário */
+  flex-shrink: 0;
+  /* Impede que o ícone encolha */
+}
+
+.logoImage img {
+  width: 120px;
+  /* Tamanho do ícone */
+  transition: transform 0.2s ease, width 0.3s ease; 
+}
+
+/* Aumenta o tamanho do ícone ao passar o mouse */
+.logoImage:hover {
+  transform: scale(1.1);
+  width: 130px;
+}
+
+.logo h1 {
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .navList {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
 
 .link {
-  color: white;
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .link:hover {
-  color: #60a5fa;
+  text-decoration: underline;
+  color: #0e12ec;  
 }
