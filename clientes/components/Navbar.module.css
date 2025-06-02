@@ -1,5 +1,5 @@
 .navbar {
-  position: absolute;
+  position: fixed; /* fixa no topo */
   top: 0;
   left: 0;
   right: 0;
@@ -32,19 +32,15 @@
   height: 45px;
   width: 70px;
   margin-right: 10px;
-  /* Espaço entre o ícone e o formulário */
   flex-shrink: 0;
-  /* Impede que o ícone encolha */
 }
 
 .logoImage img {
   width: 120px;
-  /* Tamanho do ícone */
-  transition: transform 0.2s ease, width 0.3s ease; 
+  transition: transform 0.2s ease, width 0.3s ease;
 }
 
-/* Aumenta o tamanho do ícone ao passar o mouse */
-.logoImage:hover {
+.logoImage img:hover {
   transform: scale(1.1);
   width: 130px;
 }
@@ -72,5 +68,59 @@
 
 .link:hover {
   text-decoration: underline;
-  color: #0e12ec;  
+  color: #0e12ec;
 }
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .logo {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .logoImage {
+    width: 60px;
+  }
+
+  .logoImage img {
+    width: 100px;
+  }
+
+  .navList {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .link {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 450px), (max-height: 900px) {
+  .link:hover {
+    text-decoration: none;
+    color: white;
+    cursor: default;
+  }
+
+  .logoImage img:hover {
+    transform: none;
+    width: 120px;
+  }
+}
+
+
