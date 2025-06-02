@@ -1,0 +1,44 @@
+{
+  "humores": [
+    {
+      "id": "812e",
+      "humor": "Bravo",
+      "criado_em": "2025-06-02T22:56:39.776Z"
+    },
+    {
+      "id": "b2fc",
+      "humor": "Bravo",
+      "criado_em": "2025-06-02T22:56:40.645Z"
+    },
+    {
+      "id": "1571",
+      "humor": "Bravo",
+      "criado_em": "2025-06-02T22:56:42.549Z"
+    },
+    {
+      "id": "d26e",
+      "humor": "Bravo",
+      "criado_em": "2025-06-02T22:56:43.635Z"
+    },
+    {
+      "id": "6254",
+      "humor": "Feliz",
+      "criado_em": "2025-06-02T22:56:45.370Z"
+    },
+    {
+      "id": "cbef",
+      "humor": "Neutro",
+      "criado_em": "2025-06-02T22:56:47.128Z"
+    },
+    {
+      "id": "ee94",
+      "humor": "Triste",
+      "criado_em": "2025-06-02T22:56:48.253Z"
+    },
+    {
+      "id": "fcb1",
+      "humor": "Bravo",
+      "criado_em": "2025-06-02T22:57:15.728Z"
+    }
+  ]
+}
